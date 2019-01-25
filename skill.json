@@ -9,7 +9,7 @@
             "hello",
             "help"
           ],
-          "name": "dotup-ts-node-skill-sample",
+          "name": "dotup-ts-node-skills-sample",
           "description": "Sample Full Description"
         }
       },
@@ -22,7 +22,7 @@
       "custom": {
         "endpoint": {
           "sourceDir": "lambda/custom",
-          "uri": "ask-custom-dotup-ts-node-skill-sample-default"
+          "uri": "ask-custom-dotup-ts-node-skills-sample-default"
         }
       }
     },
