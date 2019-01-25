@@ -1,0 +1,32 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "https://dotup.ddnss.de/alexa/sample-skill",
+          "sslCertificateType": "Trusted"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "de-DE": {}
+      }
+    },
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "name": "dotup-ts-node-skills-sample",
+          "summary": "Test skill für Built In Slot Types",
+          "description": "details",
+          "examplePhrases": [],
+          "keywords": []
+        }
+      },
+      "isAvailableWorldwide": true,
+      "distributionCountries": []
+    }
+  }
+}

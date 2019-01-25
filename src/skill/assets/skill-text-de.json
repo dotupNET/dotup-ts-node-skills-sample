@@ -1,0 +1,30 @@
+{
+	"Welcome": [
+		"Willkommen beim slot debugger."
+	],
+	"AskHelp": [
+		"Frage nach Hilfe wenn du nicht weiter weißt."
+	],
+	"Bye": [
+		"Tschüss.",
+		"Ciao.",
+		"Gut."
+	],
+	"SomethingElse": [
+		"Noch was?"
+	],
+	"Interjections": [
+		"<say-as interpret-as=\"interjection\">achje</say-as>",
+		"<say-as interpret-as=\"interjection\">ähm</say-as>",
+		"<say-as interpret-as=\"interjection\">ahoi</say-as>",
+		"<say-as interpret-as=\"interjection\">aloha</say-as>",
+		"<say-as interpret-as=\"interjection\">argh</say-as>",
+		"<say-as interpret-as=\"interjection\">bonjour</say-as>"
+	],
+	"Help": [
+		"Du kannst testen welches Datum für den Slot Typ Date von Alexa erkannt wird. Sage einfach teste Datum. Du kannst testen welche deutschen Städte erkannt werden. Sage einfach teste Städte. Du kannst testen welche deutschen Vornamen erkannt werden. Sage einfach teste Namen."
+	],
+	"Error": [
+		"Entschuldigung. Es ist ein Fehler aufgetreten."
+	]
+}

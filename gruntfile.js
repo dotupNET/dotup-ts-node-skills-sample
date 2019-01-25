@@ -1,4 +1,8 @@
 module.exports = function (grunt) {
+
+  const skillId = '';
+  const functionArn = '';
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -75,7 +79,7 @@ module.exports = function (grunt) {
         cwd: 'src',
         // These are the directories to be copied as-is.
         // These must also be specified below in the watch block.
-        src: ['assets/**'],
+        src: ['assets/**', '!assets/**/*.map'],
         dest: 'dist',
         expand: true
       },
@@ -86,15 +90,15 @@ module.exports = function (grunt) {
         src: 'package.json',
         dest: 'dist/skill',
         expand: true
-      },
-      lambda: {
-        cwd: 'dist/skill',
-        // These are the directories to be copied as-is.
-        // These must also be specified below in the watch block.
-        src: ['**', '!**/*.map' ],
-        dest: 'lambda/custom',
-        expand: true
       }
+      // lambda: {
+      //   cwd: 'dist/skill',
+      //   // These are the directories to be copied as-is.
+      //   // These must also be specified below in the watch block.
+      //   src: ['**', '!**/*.map' ],
+      //   dest: 'lambda/custom',
+      //   expand: true
+      // }
     },
 
     run: {
@@ -113,10 +117,41 @@ module.exports = function (grunt) {
           'dist/skill',
           'dist/skill/'
         ]
+      },
+      deploy_model: {
+        cmd: 'ask',
+        args: [
+          'deploy',
+          '-t model',
+          '--force'        ]
+      },
+      deploy_skill: {
+        cmd: 'ask',
+        args: [
+          'deploy',
+          '-t skill',
+          '--force'        ]
       }
     },
 
-    clean: ['dist']
+    clean: ['dist'],
+
+		lambda_package: {
+			default: {
+				options: {
+					package_folder: 'dist/skill/'
+				}
+			}
+		},
+		lambda_deploy: {
+			default: {
+				arn: 'arn:aws:lambda:eu-west-1:977739547106:function:dotup-ts-node-skills-sample',
+				options: {
+					credentialsJSON: './secrets/awsCredentials.json',
+					region: "eu-west-1"
+				},
+			}
+		}
 
   });
 
@@ -128,10 +163,14 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-nodemon");
   grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks('grunt-run');
+	grunt.loadNpmTasks('grunt-aws-lambda');
+
+	grunt.registerTask('lambda-pack', ['lambda_package:default']);
+	grunt.registerTask('lambda-deploy', ['release', 'lambda_package:default', 'lambda_deploy:default']);
 
   // Default tasks.
   grunt.registerTask("serve", ["concurrent:watchers"]);
   grunt.registerTask("build", ["clean", "ts", "copy:assets"]);
   grunt.registerTask('default', ["tslint:all", "ts:build", "copy:assets"]);
-  grunt.registerTask("release", ["build", "copy:assets", "copy:packageJSON", "run:installDependencies", "copy:lambda"]);
+  grunt.registerTask("release", ["build", "copy:packageJSON", "run:installDependencies"]);
 };

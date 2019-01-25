@@ -1,8 +1,12 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "hello world",
+      "invocationName": "debug",
       "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -16,12 +20,18 @@
           "samples": []
         },
         {
-          "name": "HelloWorldIntent",
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorld",
+          "slots": [],
           "samples": [
-            "hello"
+            "hallo"
           ]
         }
-      ]
+      ],
+      "types": []
     }
   }
 }

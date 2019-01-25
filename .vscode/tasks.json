@@ -52,6 +52,13 @@
 			"problemMatcher": [
 				"$tsc"
 			]
+		},
+		{
+			"type": "grunt",
+			"task": "lambda-deploy",
+			"problemMatcher": [
+				"$tsc"
+			]
 		}
 	]
 }

@@ -43,6 +43,7 @@
     "dotup-ts-node-skills": "0.0.2",
     "gh-pages": "^2.0.1",
     "grunt": "^1.0.3",
+    "grunt-aws-lambda": "^0.13.0",
     "grunt-concurrent": "^2.3.1",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
