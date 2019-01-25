@@ -1,0 +1,65 @@
+{
+  "name": "dotup-ts-node-skills-sample",
+  "version": "0.0.1",
+  "description": "Alexa skill template",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "release": "npm run clean-build && npm run test && git push && npm run gh-pages && npm publish",
+    "clean-dist": "rimraf dist",
+    "clean-build": "rimraf dist && tsc",
+    "test": "jasmine-ts",
+    "docs": "typedoc --mode file --out docs src --exclude \"**/*+(index|.spec|.e2e).ts\"",
+    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotupNET/dotup-ts-node-skills-sample.git"
+  },
+  "keywords": [
+    "typescript",
+    "library",
+    "template"
+  ],
+  "author": "Peter Ullrich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dotupNET/dotup-ts-node-skills-sample/issues"
+  },
+  "homepage": "https://github.com/dotupNET/dotup-ts-node-skills-sample#readme",
+  "dependencies": {
+    "ask-sdk-core": "^2.3.0",
+    "ask-sdk-model": "^1.11.2",
+    "i18next": "^14.0.1",
+    "i18next-sprintf-postprocessor": "^0.2.2",
+    "sample-skill": "file:dist/skill"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/i18next-sprintf-postprocessor": "^0.0.29",
+    "@types/jasmine": "^3.3.8",
+    "dotup-ts-alexa-skill-server": "^0.0.1",
+    "dotup-ts-node-skills": "0.0.2",
+    "gh-pages": "^2.0.1",
+    "grunt": "^1.0.3",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-newer": "^1.1.0",
+    "grunt-nodemon": "^0.4.2",
+    "grunt-run": "^0.8.1",
+    "grunt-ts": "^6.0.0-beta.22",
+    "grunt-tslint": "^5.0.2",
+    "jasmine": "^3.3.1",
+    "jasmine-reporters": "^2.3.2",
+    "jasmine-ts": "^0.3.0",
+    "jasmine-ts-console-reporter": "^3.1.1",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.0.1",
+    "tslint": "^5.12.1",
+    "typedoc": "^0.14.2",
+    "typescript": "3.2.2"
+  }
+}
