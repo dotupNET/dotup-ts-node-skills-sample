@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
 
   const skillId = '';
-  const functionArn = '';
+  const functionArn = 'arn:aws:lambda:eu-west-1:977739547106:function:dotup-ts-node-skills-sample';
 
   // Project configuration.
   grunt.initConfig({
@@ -145,7 +145,7 @@ module.exports = function (grunt) {
 		},
 		lambda_deploy: {
 			default: {
-				arn: 'arn:aws:lambda:eu-west-1:977739547106:function:dotup-ts-node-skills-sample',
+				arn: functionArn,
 				options: {
 					credentialsJSON: './secrets/awsCredentials.json',
 					region: "eu-west-1"
