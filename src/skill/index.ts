@@ -1,6 +1,6 @@
 
-import { NameTestIntent } from "./NameTestIntent";
-import { NodeSkill, NodeSkillConfiguration } from "dotup-ts-node-skills";
+import { NodeSkill, NodeSkillConfiguration } from 'dotup-ts-node-skills';
+import { NameTestIntent } from './NameTestIntent';
 
 console.log('loading dotup-sample-skill');
 
@@ -11,7 +11,7 @@ const config: NodeSkillConfiguration = {
   LogResponse: true
 };
 
-const skill = new NodeSkill(config);
+const skill: NodeSkill = new NodeSkill(config);
 skill.AddBuiltInHandler();
 
 skill.AddIntentHandler(new NameTestIntent());

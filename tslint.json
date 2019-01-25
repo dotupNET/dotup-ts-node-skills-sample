@@ -1,8 +1,18 @@
 {
+  "extends": [
+    "tslint-microsoft-contrib"
+  ],
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "node_modules/tslint-microsoft-contrib"
   ],
   "rules": {
+    "function-name": false,
+    "export-name": false,
+    "NameTestIntent": false,
+    "linebreak-style": false,
+    "no-relative-imports": false,
+    "no-suspicious-comment": false,
+    "typedef": false,
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -11,9 +21,6 @@
       "check-space"
     ],
     "curly": true,
-    "deprecation": {
-      "severity": "warn"
-    },
     "eofline": true,
     "forin": true,
     "import-blacklist": [
@@ -73,7 +80,6 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
@@ -116,16 +122,6 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ],
-    "no-output-on-prefix": true,
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
-    "directive-class-suffix": true
+    ]
   }
 }

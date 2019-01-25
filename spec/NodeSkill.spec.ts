@@ -1,10 +1,11 @@
-import { NodeSkill } from "../src/NodeSkill";
+import { NameTestIntent } from '../src/skill/NameTestIntent';
 
 describe('AwesomeLibrary', () => {
 
   it('should create an instance', () => {
-    const value = new NodeSkill({ Name: 'nice-skill' });
-    expect(value).toBeTruthy();
+    const value: NameTestIntent = new NameTestIntent();
+    expect(value)
+      .toBeTruthy();
   });
 
 });

@@ -56,8 +56,9 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
-          "**/*.ts",
+          "src/**/*.ts",
           "!dist/**/*.ts",
+          "!node_modules",
           "!node_modules/**/*.ts",
           "!obj/**/*.ts",
           "!typings/**/*.ts"
@@ -79,7 +80,7 @@ module.exports = function (grunt) {
         cwd: 'src',
         // These are the directories to be copied as-is.
         // These must also be specified below in the watch block.
-        src: ['assets/**', '!assets/**/*.map'],
+        src: ['skill/assets/**', '!assets/**/*.map'],
         dest: 'dist',
         expand: true
       },
@@ -102,11 +103,11 @@ module.exports = function (grunt) {
     },
 
     run: {
-      release: {
+      test: {
         cmd: 'npm.cmd',
         args: [
           'run',
-          'release'
+          'test'
         ]
       },
       installDependencies: {
@@ -166,11 +167,11 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-aws-lambda');
 
 	grunt.registerTask('lambda-pack', ['lambda_package:default']);
-	grunt.registerTask('lambda-deploy', ['release', 'lambda_package:default', 'lambda_deploy:default']);
+	grunt.registerTask('lambda-deploy', ['lambda_package:default', 'lambda_deploy:default']);
 
   // Default tasks.
   grunt.registerTask("serve", ["concurrent:watchers"]);
-  grunt.registerTask("build", ["clean", "ts", "copy:assets"]);
-  grunt.registerTask('default', ["tslint:all", "ts:build", "copy:assets"]);
-  grunt.registerTask("release", ["build", "copy:packageJSON", "run:installDependencies"]);
+  grunt.registerTask("build", ["clean", "ts", "copy:assets", "copy:packageJSON"]);
+  grunt.registerTask("release", ["clean", "ts", "run:test", "tslint:all", "copy:assets", "copy:packageJSON"]);
+  grunt.registerTask("publish", ['release', "run:installDependencies", "lambda-deploy"]);
 };
