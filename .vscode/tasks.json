@@ -43,11 +43,6 @@
 		},
 		{
 			"type": "grunt",
-			"task": "gh-pages",
-			"problemMatcher": []
-		},
-		{
-			"type": "grunt",
 			"task": "release",
 			"problemMatcher": [
 				"$tsc"

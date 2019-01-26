@@ -1,10 +1,10 @@
 
-import { NodeSkill, NodeSkillConfiguration } from 'dotup-ts-node-skills';
+import { INodeSkillConfiguration, NodeSkill } from 'dotup-ts-node-skills';
 import { NameTestIntent } from './NameTestIntent';
 
 console.log('loading dotup-sample-skill');
 
-const config: NodeSkillConfiguration = {
+const config: INodeSkillConfiguration = {
   Id: '',
   Name: 'dotup-sample-skill',
   LogRequest: true,
