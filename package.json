@@ -39,6 +39,7 @@
     "@types/express": "^4.16.1",
     "@types/i18next-sprintf-postprocessor": "^0.0.29",
     "@types/jasmine": "^3.3.8",
+    "dotup-aws-credentials-loader": "0.0.8",
     "dotup-ts-alexa-skill-server": "^0.0.1",
     "dotup-ts-node-skills": "0.0.4",
     "gh-pages": "^2.0.1",

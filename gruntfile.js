@@ -1,10 +1,16 @@
+const awsCreds = require('dotup-aws-credentials-loader');
+
 module.exports = function (grunt) {
+
+  const loader = new awsCreds.AwsCredentialsLoader();
+  const cred = loader.GetCredentials();
 
   const skillId = '';
   const functionArn = 'arn:aws:lambda:eu-west-1:977739547106:function:dotup-ts-node-skills-sample';
 
   // Project configuration.
   grunt.initConfig({
+
     pkg: grunt.file.readJSON('package.json'),
 
     nodemon: {
@@ -124,35 +130,36 @@ module.exports = function (grunt) {
         args: [
           'deploy',
           '-t model',
-          '--force'        ]
+          '--force']
       },
       deploy_skill: {
         cmd: 'ask',
         args: [
           'deploy',
           '-t skill',
-          '--force'        ]
+          '--force']
       }
     },
 
     clean: ['dist'],
 
-		lambda_package: {
-			default: {
-				options: {
-					package_folder: 'dist/skill/'
-				}
-			}
-		},
-		lambda_deploy: {
-			default: {
-				arn: functionArn,
-				options: {
-					credentialsJSON: './secrets/awsCredentials.json',
-					region: "eu-west-1"
-				},
-			}
-		}
+    lambda_package: {
+      default: {
+        options: {
+          package_folder: 'dist/skill/'
+        }
+      }
+    },
+    lambda_deploy: {
+      default: {
+        arn: functionArn,
+        options: {
+          accessKeyId: credentials.accessKeyId,
+          secretAccessKey: credentials.secretAccessKey,
+          region: "eu-west-1"
+        },
+      }
+    }
 
   });
 
@@ -164,10 +171,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-nodemon");
   grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks('grunt-run');
-	grunt.loadNpmTasks('grunt-aws-lambda');
+  grunt.loadNpmTasks('grunt-aws-lambda');
 
-	grunt.registerTask('lambda-pack', ['lambda_package:default']);
-	grunt.registerTask('lambda-deploy', ['lambda_package:default', 'lambda_deploy:default']);
+  grunt.registerTask('lambda-pack', ['lambda_package:default']);
+  grunt.registerTask('lambda-deploy', ['lambda_package:default', 'lambda_deploy:default']);
 
   // Default tasks.
   grunt.registerTask("serve", ["concurrent:watchers"]);
