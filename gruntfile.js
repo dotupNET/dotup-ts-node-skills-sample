@@ -3,7 +3,7 @@ const awsCreds = require('dotup-aws-credentials-loader');
 module.exports = function (grunt) {
 
   const loader = new awsCreds.AwsCredentialsLoader();
-  const cred = loader.GetCredentials();
+  const credentials = loader.GetCredentials();
 
   const skillId = '';
   const functionArn = 'arn:aws:lambda:eu-west-1:977739547106:function:dotup-ts-node-skills-sample';
