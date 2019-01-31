@@ -1,1 +1,0 @@
-src\LocalSkillServer.ts src\sample.ts src\skill\index.ts src\skill\Intents\AddToListIntent.ts src\skill\Models\HighScoreItem.ts src\skill\NameTestIntent.ts --sourcemap --removeComments --noImplicitAny --moduleResolution node --rootDir src --alwaysStrict --noImplicitThis --strictFunctionTypes --esModuleInterop --lib es6,es2017,dom --target ES6 --module commonjs --outDir dist
