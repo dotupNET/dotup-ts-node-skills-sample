@@ -8,7 +8,7 @@ export class LocalSkillServer {
     this.server = new SkillServer(44303);
     this.server.configure((config: SkillServerConfig) => {
       config.RootPath = __dirname;
-      config.SslPath = '../../secrets/certs';
+      config.SslPath = '../secrets/certs';
       config.SslPrivateKey = 'privkey1.pem';
       config.SslCertificate = 'cert1.pem';
       config.SslChain = 'chain1.pem';

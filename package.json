@@ -41,7 +41,7 @@
     "@types/jasmine": "^3.3.8",
     "dotup-aws-credentials-loader": "0.0.8",
     "dotup-ts-alexa-skill-server": "^0.0.1",
-    "dotup-ts-node-skills": "0.0.4",
+    "dotup-ts-node-skills": "0.0.7",
     "gh-pages": "^2.0.1",
     "grunt": "^1.0.3",
     "grunt-aws-lambda": "^0.13.0",

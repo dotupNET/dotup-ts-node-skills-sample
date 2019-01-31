@@ -13,6 +13,6 @@
     "ask-sdk-model": "^1.11.2",
     "i18next": "^14.0.1",
     "i18next-sprintf-postprocessor": "^0.2.2",
-    "dotup-ts-node-skills": "0.0.4"
+    "dotup-ts-node-skills": "0.0.7"
   }
 }
